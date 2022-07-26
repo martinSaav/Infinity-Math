@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'img/infinity_icon.png' %}" sizes="16x16" />
+    <script src="https://kit.fontawesome.com/3697b81890.js" crossorigin="anonymous"></script>
+    <link href=" {% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body>
+    <header>
+        <div class="contenedor">
+            <div class="barra">
+                <a class="logo" href="{% url 'home' %}">
+                    <h1 class="logo__nombre centrar">Infinity<span class="logo__bold">Math</span></h1>
+                </a>
+                <nav class="navegacion">
+                    <a class="navegacion_enlace {% if request.path == '/' %} selecionado {% endif %}" href="{% url 'home' %}">INICIO</a>
+                    <a class="navegacion_enlace {% if request.path == '/clasesParticulares/' %} selecionado {% endif %}" href="{% url 'clasesParticulares' %}">CLASES PARTICULARES</a>
+                    <a class="navegacion_enlace {% if request.path == '/contacto/' %} selecionado {% endif %}" href="{% url 'contacto' %}">CONTACTO</a>
+                </nav>
+            </div>
+        </div>
+        <div class="header_texto">
+            <h2>{% block sub_title %}{% endblock sub_title %}</h2>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer class="centrar">
+        <div class="contenedor_footer">
+            <a href="https://twitter.com/MartinTheDuck_1" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.facebook.com/martin.estrada.18488169/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/martin.saav/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/mart%C3%ADn-alejandro-estrada-saavedra-255214198/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p><span class="derechos">Derechos Reservados ©<script>document.write(new Date().getFullYear());</script></span></p>
+    </footer>
+</body>
+</html>
