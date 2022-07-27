@@ -1,3 +1,4 @@
 media
 .vscode
 __pycache__/
+.env
